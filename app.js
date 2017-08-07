@@ -32,9 +32,20 @@ function Eleve(id, prenom, nom, sexe, age) {
 
 };
 
-var julien = new Eleve('id', 'Julien', 'Febvre', "m", 28);
+// function Eleve( id, prenom, nom, sexe, age ) {
+//  this.id = id;
+//  this.prenom = prenom;
+//  this.nom = nom;
+//  this.sexe = sexe;
+//  this.age = age;  this.affiche = function () {
+//    var titre = 'M' == this.sexe ? 'Monsieur' : 'Madame ';
+//    console.log(titre + " " + this.prenom + " " + this.nom);
+//  }
+// }
 
-julien.addAffiche();
+// var julien = new Eleve('id', 'Julien', 'Febvre', "m", 28);
+
+// julien.addAffiche();
 
 
 function Classe(){
