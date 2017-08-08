@@ -65,7 +65,7 @@ function Classe(){
 
         var compte = 0;
 
-        if (sexe == "A"){
+        if (sexe == "a"){
 
             return nombreEleveTotal;
 
