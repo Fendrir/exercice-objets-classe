@@ -14,19 +14,17 @@ function Eleve(id, prenom, nom, sexe, age) {
 
     this.addAffiche = function () {
 
-    	if (this.sexe == "m"){
+        this.sexe == "m"?console.log("Monsieur " + this.prenom + " " + this.nom):console.log("Madame " + this.prenom + " " + this.nom);
 
-    		this.sexe = "Monsieur";
+    	// if (this.sexe == "m"){
 
-    		console.log(this.sexe + " " + this.prenom + " " + this.nom);
+    	// 	console.log("Monsieur " + this.prenom + " " + this.nom);  // | version longue
 
-    	} else if (this.sexe == "f"){
+    	// } else if (this.sexe == "f"){
 
+    	// 	console.log("Madame " + this.prenom + " " + this.nom);
 
-    		this.sexe = "Madame";
-    		console.log(this.sexe + " " + this.prenom + " " + this.nom);
-
-    	};
+    	// };
 
     };
 
@@ -55,22 +53,68 @@ function Classe(){
 
 	this.addEleve = function( prenom, nom, sexe, age) {
 
-		this.eleves.push( new Eleve ( this.curIdEleve, prenom, nom, sex, age));
+		this.eleves.push( new Eleve ( this.curIdEleve, prenom, nom, sexe, age));
 		this.curIdEleve++;
 
 
 	}
 
-	this.compteEleve = function (sexe = 'A'){
+	this.compteEleve = function (sexe = "a"){
+
+        var nombreEleveTotal = this.eleves.length;
+
+        var compte = 0;
+
+        if (sexe == "A"){
+
+            return nombreEleveTotal;
+
+        }else {
+
+            for (i = 0; i < this.eleves.length; i++){
+
+                 if (sexe == this.eleves[i].sexe){
+
+                    compte++;
+
+                
+                }
+
+                
+            }
+
+        return compte;
+
+    	}
+
+    }
+
+    this.afficheEleves = function (){
 
 
-	}
+        for (i = 0; i < this.eleves.length; i++){
+
+            this.eleves[i].addAffiche();
+
+        }
+
+
+    }
+
 
 }
 
+
+
+
+
 var maClasse = new Classe();
-maClasse.addEleve("Pierre", "De Soos", "M", 41);
-maClasse.addEleve("Jean", "Vallat", "M", 22);
+maClasse.addEleve("Pierre", "De Soos", "m", 41);
+maClasse.addEleve("Jean", "Vallat", "m", 22);
 maClasse.addEleve("Louise", "Leontine", "f", 27);
 
-console.log("Il y a " + maClasse.compteEleve('A') + " élèves dans la classe");
+console.log("Il y a " + maClasse.compteEleve("a") + " élèves dans la classe");
+console.log("Il y a " + maClasse.compteEleve("f") + " élèves dans la classe");
+console.log("Il y a " + maClasse.compteEleve("m") + " élèves dans la classe");
+
+maClasse.afficheEleves();
